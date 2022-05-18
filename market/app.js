@@ -179,57 +179,36 @@ let contadorF = 1
 
 
 
+
 function sumas() {
 
   let final = priceProduct;
 
-  for (let i = 0; i < total.length; i++) {
-      final += total[i];
-  }
+  final = final + contadorF * priceProduct
   contadorF = contadorF + 1
   cantidadP.textContent= contadorF
 
   totalP.textContent =  `$${final}`
   total.push(priceProduct)
-  console.log(final);
+  
 
 }
 
 function restas() {
-  contadorF = contadorF - 1
-
-  cantidadP.textContent= contadorF
-  let resta = [];
-  for (let i = 1; i < total.length; i++) {
-      resta = total.slice(0,-1);
-     console.log(resta);
-     restame()
+  if(contadorF <= 0){
+    cantidadP.textContent = 0 
+    totalP.textContent = `$0`
+  }else{
+    let final = priceProduct
+    final = final - contadorF * priceProduct
+    contadorF = contadorF - 1
+    cantidadP.textContent = contadorF
+    totalP.textContent = `$${final * -1}`
+  }
   }
 
 
-function restame(){
-  let suma = 0
-  for (let i = 0; i < resta.length; i++) {
-    suma += resta[i];
-    
-    console.log(suma);
-    totalP.textContent =  `${suma}`
-}
-}
 
-
-
-
-
-
-
-
-
-  
-  console.log( typeof resta);
-
-
-}
 
 }
 }
